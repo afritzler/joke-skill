@@ -42,7 +42,7 @@ func RandomJoke(w http.ResponseWriter, r *http.Request) {
 		returnWithReply(w, replies)
 	} else {
 		replies = append(replies, generateTextMessage(response.Setup, 0))
-		replies = append(replies, generateTextMessage(response.Punchline, 1))
+		replies = append(replies, generateTextMessage(response.Punchline, 0))
 	}
 	returnWithReply(w, replies)
 }
