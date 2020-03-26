@@ -41,8 +41,12 @@ func RandomJoke(w http.ResponseWriter, r *http.Request) {
 		replies = append(replies, generateTextMessage(types.RequestErrorMessage, 0))
 		returnWithReply(w, replies)
 	} else {
-		replies = append(replies, generateTextMessage(response.Setup, 0))
-		replies = append(replies, generateTextMessage(response.Punchline, 0))
+		if response.Setup != "" {
+			replies = append(replies, generateTextMessage(response.Setup, 0))
+		}
+		if response.Punchline != "" {
+			replies = append(replies, generateTextMessage(response.Punchline, 0))
+		}
 	}
 	returnWithReply(w, replies)
 }
